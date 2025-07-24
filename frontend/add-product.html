@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniSell - Add New Product</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="add-product-styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>OmniSell</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">
+                    <span class="nav-icon dashboard-icon"></span>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon settings-icon"></span>
+                    Settings
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon pricing-icon"></span>
+                    Pricing
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <header class="page-header">
+                    <h1>Add New Product</h1>
+                    <p class="page-description">Fill in the details below to add a new product to your linked platforms.</p>
+                </header>
+
+                <form class="add-product-form">
+                    <!-- Product Details Section -->
+                    <section class="form-section">
+                        <h2 class="section-title">Product Details</h2>
+                        
+                        <div class="form-group">
+                            <label for="product-name" class="form-label">Product Name</label>
+                            <input type="text" id="product-name" class="form-input" placeholder="Enter product name">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Product Image</label>
+                            <div class="image-upload-area">
+                                <div class="upload-placeholder">
+                                    <div class="upload-icon">📷</div>
+                                    <p>Click to upload or drag and drop</p>
+                                    <p class="upload-hint">PNG, JPG up to 10MB</p>
+                                </div>
+                                <input type="file" id="product-image" class="file-input" accept="image/*">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-description" class="form-label">Product Description</label>
+                            <input type="text" id="product-description" class="form-input" placeholder="Brief description of the product">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="price" class="form-label">Price</label>
+                                <div class="price-input">
+                                    <span class="currency-symbol">₱</span>
+                                    <input type="number" id="price" class="form-input" placeholder="0.00" step="0.01">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="category" class="form-label">Category</label>
+                                <select id="category" class="form-select">
+                                    <option value="">Select category</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="home">Home & Garden</option>
+                                    <option value="sports">Sports</option>
+                                    <option value="books">Books</option>
+                                    <option value="toys">Toys</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label for="detailed-description" class="form-label">Detailed Description</label>
+                            <textarea id="detailed-description" class="form-textarea" rows="6" placeholder="Provide a detailed description of your product, including features, specifications, and benefits..."></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="stock" class="form-label">Stock</label>
+                                <input type="number" id="stock" class="form-input" placeholder="0" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="sku" class="form-label">SKU</label>
+                                <input type="text" id="sku" class="form-input" placeholder="SKU-001">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Publish to Platforms Section -->
+                    <section class="form-section">
+                        <h2 class="section-title">Publish to Platforms</h2>
+                        
+                        <div class="platforms-grid">
+                            <div class="platform-option">
+                                <input type="checkbox" id="platform-lazada" class="platform-checkbox" checked>
+                                <label for="platform-lazada" class="platform-label">
+                                    <div class="platform-icon lazada-icon"></div>
+                                    <span class="platform-name">Lazada</span>
+                                </label>
+                            </div>
+                            
+                            <div class="platform-option">
+                                <input type="checkbox" id="platform-shopee" class="platform-checkbox">
+                                <label for="platform-shopee" class="platform-label">
+                                    <div class="platform-icon shopee-icon"></div>
+                                    <span class="platform-name">Shopee</span>
+                                </label>
+                            </div>
+                            
+                            <div class="platform-option">
+                                <input type="checkbox" id="platform-ebay" class="platform-checkbox" checked>
+                                <label for="platform-ebay" class="platform-label">
+                                    <div class="platform-icon ebay-icon"></div>
+                                    <span class="platform-name">eBay</span>
+                                </label>
+                            </div>
+                            
+                            <div class="platform-option">
+                                <input type="checkbox" id="platform-tiktok" class="platform-checkbox">
+                                <label for="platform-tiktok" class="platform-label">
+                                    <div class="platform-icon tiktok-icon"></div>
+                                    <span class="platform-name">TikTok</span>
+                                </label>
+                            </div>
+                            
+                            <div class="platform-option">
+                                <input type="checkbox" id="platform-facebook" class="platform-checkbox">
+                                <label for="platform-facebook" class="platform-label">
+                                    <div class="platform-icon facebook-icon"></div>
+                                    <span class="platform-name">Facebook</span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="create-product-btn">Create Product</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
