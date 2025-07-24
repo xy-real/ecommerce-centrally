@@ -1,84 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OmniSell - Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Link to Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom styles to ensure Inter font is used */
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
     <div class="app-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo">
-                <h2>OmniSell</h2>
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="logo">
+          <h2>OmniSell</h2>
+        </div>
+        <nav class="nav-menu">
+          <a href="#" class="nav-item active">
+            <span class="nav-icon dashboard-icon"></span>
+            Dashboard
+          </a>
+          <a href="#" class="nav-item">
+            <span class="nav-icon settings-icon"></span>
+            Settings
+          </a>
+          <a href="#" class="nav-item">
+            <span class="nav-icon pricing-icon"></span>
+            Pricing
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Welcome Header -->
+        <header class="welcome-header">
+          <div class="welcome-content">
+            <div class="profile-section">
+              <div class="profile-avatar"></div>
+              <div class="welcome-text">
+                <h1>Welcome back,</h1>
+                <h2>Maria Dela Cruz!</h2>
+                <p class="user-role">Premium User</p>
+              </div>
             </div>
-            <nav class="nav-menu">
-                <a href="#" class="nav-item active">
-                    <span class="nav-icon dashboard-icon"></span>
-                    Dashboard
-                </a>
-                <a href="#" class="nav-item">
-                    <span class="nav-icon settings-icon"></span>
-                    Settings
-                </a>
-                <a href="#" class="nav-item">
-                    <span class="nav-icon pricing-icon"></span>
-                    Pricing
-                </a>
-            </nav>
-        </aside>
+          </div>
+        </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Welcome Header -->
-            <header class="welcome-header">
-                <div class="welcome-content">
-                    <div class="profile-section">
-                        <div class="profile-avatar"></div>
-                        <div class="welcome-text">
-                            <h1>Welcome back,</h1>
-                            <h2>Maria Dela Cruz!</h2>
-                            <p class="user-role">Premium User</p>
-                        </div>
-                    </div>
-                </div>
-            </header>
+        <!-- Stats Cards -->
+        <section class="stats-section">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-label">Listed Products</div>
+              <div class="stat-value">6</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Linked Platforms</div>
+              <div class="stat-value">2</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Total Revenue</div>
+              <div class="stat-value">₱62,525.5</div>
+            </div>
+          </div>
+        </section>
 
-            <!-- Stats Cards -->
-            <section class="stats-section">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-label">Listed Products</div>
-                        <div class="stat-value">6</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-label">Linked Platforms</div>
-                        <div class="stat-value">2</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-label">Total Revenue</div>
-                        <div class="stat-value">₱62,525.5</div>
-                    </div>
-                </div>
-            </section>
+        <!-- Product Overview -->
+        <section class="products-section">
+          <h3 class="section-title">Product Overview</h3>
 
-            <!-- Product Overview -->
-            <section class="products-section">
-                <h3 class="section-title">Product Overview</h3>
-                
-                <div class="products-grid">
-                    <!-- Add New Product Card -->
-                    <div class="product-card add-product">
-                        <div class="add-product-content">
-                            <div class="add-icon">+</div>
-                            <h4>Add New Product</h4>
-                            <p>Click here to add a new product to your store</p>
-                        </div>
-                    </div>
+          <div class="products-grid">
+            <!-- Add New Product Card -->
+            <div class="product-card add-product">
+              <div class="add-product-content">
+                <div class="add-icon">+</div>
+                <h4>Add New Product</h4>
+                <p>Click here to add a new product to your store</p>
+              </div>
+            </div>
+
+            <!-- Existing Product Cards (New additions) -->
+            <div class="product-card">
+              <div class="product-image wireless-mouse"></div>
+              <div class="product-details">
+                <div class="product-name">Ergonomic Wireless Mouse</div>
+                <div class="product-category">Electronics</div>
+                <div class="product-price">₱1,250.00</div>
+                <div class="product-units">50 units in stock</div>
+                <span class="performance-label">Performance</span>
+                <div class="platform-stats">
+                  <div class="platform-stat">
+                    <span class="platform-indicator lazada"></span>
+                    <span class="platform-name">Lazada</span>
+                    <span class="platform-percentage">65%</span>
+                  </div>
+                  <div class="platform-stat">
+                    <span class="platform-indicator ebay"></span>
+                    <span class="platform-name">eBay</span>
+                    <span class="platform-percentage">35%</span>
+                  </div>
                 </div>
-            </section>
-        </main>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image coffee-beans"></div>
+              <div class="product-details">
+                <div class="product-name">Premium Arabica Coffee Beans</div>
+                <div class="product-category">Food & Beverage</div>
+                <div class="product-price">₱450.00</div>
+                <div class="product-units">120 units in stock</div>
+                <span class="performance-label">Performance</span>
+                <div class="platform-stats">
+                  <div class="platform-stat">
+                    <span class="platform-indicator lazada"></span>
+                    <span class="platform-name">Lazada</span>
+                    <span class="platform-percentage">80%</span>
+                  </div>
+                  <div class="platform-stat">
+                    <span class="platform-indicator ebay"></span>
+                    <span class="platform-name">eBay</span>
+                    <span class="platform-percentage">20%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image leather-wallet"></div>
+              <div class="product-details">
+                <div class="product-name">Handcrafted Leather Wallet</div>
+                <div class="product-category">Accessories</div>
+                <div class="product-price">₱899.00</div>
+                <div class="product-units">30 units in stock</div>
+                <span class="performance-label">Performance</span>
+                <div class="platform-stats">
+                  <div class="platform-stat">
+                    <span class="platform-indicator lazada"></span>
+                    <span class="platform-name">Lazada</span>
+                    <span class="platform-percentage">50%</span>
+                  </div>
+                  <div class="platform-stat">
+                    <span class="platform-indicator ebay"></span>
+                    <span class="platform-name">eBay</span>
+                    <span class="platform-percentage">50%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image led-strip"></div>
+              <div class="product-details">
+                <div class="product-name">Smart LED Strip Lights (5m)</div>
+                <div class="product-category">Home & Living</div>
+                <div class="product-price">₱720.00</div>
+                <div class="product-units">75 units in stock</div>
+                <span class="performance-label">Performance</span>
+                <div class="platform-stats">
+                  <div class="platform-stat">
+                    <span class="platform-indicator lazada"></span>
+                    <span class="platform-name">Lazada</span>
+                    <span class="platform-percentage">70%</span>
+                  </div>
+                  <div class="platform-stat">
+                    <span class="platform-indicator ebay"></span>
+                    <span class="platform-name">eBay</span>
+                    <span class="platform-percentage">30%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image yoga-mat"></div>
+              <div class="product-details">
+                <div class="product-name">Eco-Friendly Yoga Mat</div>
+                <div class="product-category">Sports & Outdoors</div>
+                <div class="product-price">₱1,500.00</div>
+                <div class="product-units">40 units in stock</div>
+                <span class="performance-label">Performance</span>
+                <div class="platform-stats">
+                  <div class="platform-stat">
+                    <span class="platform-indicator lazada"></span>
+                    <span class="platform-name">Lazada</span>
+                    <span class="platform-percentage">60%</span>
+                  </div>
+                  <div class="platform-stat">
+                    <span class="platform-indicator ebay"></span>
+                    <span class="platform-name">eBay</span>
+                    <span class="platform-percentage">40%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
-</body>
+  </body>
 </html>
