@@ -15,6 +15,7 @@
     gap: 16px;
 }
 
+
 .back-btn {
     background: none;
     border: none;
@@ -323,6 +324,7 @@
 .ebay-btn:hover {
     background-color: #c82333;
 }
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

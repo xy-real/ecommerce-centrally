@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniSell - Inventory Management</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="inv-mngmnt-styles.css">
+    <link rel="shortcut icon" href="../img/myfavicon.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>OmniSell</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-item">
+                    <span class="nav-icon dashboard-icon"></span>
+                    Dashboard
+                </a>
+                <a href="../settings.html" class="nav-item">
+                    <span class="nav-icon settings-icon"></span>
+                    Settings
+                </a>
+                <a href="../pricing.html" class="nav-item">
+                    <span class="nav-icon pricing-icon"></span>
+                    Pricing
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Header -->
+                <header class="page-header">
+                    <div class="header-navigation">
+                        <button class="back-btn">←</button>
+                        <div class="header-title">
+                            <h1>Inventory Management</h1>
+                            <p class="header-subtitle">Tracking stock of Premium Arabica Coffee Beans</p>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="inventory-layout">
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        <!-- Product Info -->
+                        <section class="product-info-section">
+                            <div class="product-image">
+                                <img src="../img/coffee.png" alt="Wireless Ergonomic Mouse" class="product-img">
+                            </div>
+                            <div class="product-details">
+                                <h2 class="product-name">Premium Arabica Coffee Beans</h2>
+                                <div class="product-price">₱450.00</div>
+                                <div class="current-stock">
+                                    <span class="stock-label">CURRENT STOCK</span>
+                                    <div class="stock-value">120</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Update Stock Level -->
+                        <section class="update-stock-section">
+                            <h3 class="section-title">Update Stock Level</h3>
+                            <div class="stock-form">
+                                <label for="quantity" class="form-label">Quantity to Add or Sell</label>
+                                <input type="number" id="quantity" class="quantity-input" placeholder="e.g. 10">
+                                <div class="stock-actions">
+                                    <button class="stock-btn add-stock-btn">Add to Stock</button>
+                                    <button class="stock-btn record-sale-btn">Record Physical Sale</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="right-column">
+                        <!-- Daily Sales Chart -->
+                        <section class="sales-chart-section">
+                            <h3 class="chart-title">Daily Sales (Last 7 Days)</h3>
+                            <div class="chart-container">
+                                <div class="chart-bars">
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 40px;"></div>
+                                            <div class="bar ebay-bar" style="height: 25px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 35px;"></div>
+                                            <div class="bar ebay-bar" style="height: 45px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 60px;"></div>
+                                            <div class="bar ebay-bar" style="height: 80px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 50px;"></div>
+                                            <div class="bar ebay-bar" style="height: 35px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 45px;"></div>
+                                            <div class="bar ebay-bar" style="height: 40px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 70px;"></div>
+                                            <div class="bar ebay-bar" style="height: 85px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 55px;"></div>
+                                            <div class="bar ebay-bar" style="height: 50px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-indicator lazada"></span>
+                                        <span class="legend-label">Lazada</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-indicator ebay"></span>
+                                        <span class="legend-label">eBay</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Platform Actions -->
+                        <section class="platform-actions-section">
+                            <h3 class="section-title">Platform Actions</h3>
+                            <div class="platform-buttons">
+
+                                <button class="platform-btn lazada-btn" onclick="window.location.href='https://www.lazada.com.ph/products/pdp-i4236270719-s23596910224.html?c=&channelLpJumpArgs=&clickTrackInfo=query%253Apremium%252Barabica%252Bcoffee%252Bbeans%253Bnid%253A4236270719%253Bsrc%253ALazadaMainSrp%253Brn%253Ab12994be9b4f77ea0ed2a646264215c8%253Bregion%253Aph%253Bsku%253A4236270719_PH%253Bprice%253A320%253Bclient%253Adesktop%253Bsupplier_id%253A500438640810%253Bbiz_source%253Ah5_pdp%253Bslot%253A6%253Butlog_bucket_id%253A470687%253Basc_category_id%253A25150%253Bitem_id%253A4236270719%253Bsku_id%253A23596910224%253Bshop_id%253A4407351%253BtemplateInfo%253A107881_D_E%25231103_L%2523-1_A3_C%2523&freeshipping=1&fs_ab=2&fuse_fs=&lang=en&location=Pampanga&price=3.2E%202&priceCompare=skuId%3A23596910224%3Bsource%3Alazada-search-voucher%3Bsn%3Ab12994be9b4f77ea0ed2a646264215c8%3BoriginPrice%3A32000%3BdisplayPrice%3A32000%3BsinglePromotionId%3A-1%3BsingleToolCode%3A-1%3BvoucherPricePlugin%3A0%3Btimestamp%3A1753364480632&ratingscore=4.9375&request_id=b12994be9b4f77ea0ed2a646264215c8&review=288&sale=650&search=1&source=search&spm=a2o4l.searchlist.list.6&stock=1'">Sync on Lazada</button>
+
+
+                                <button class="platform-btn ebay-btn" onclick="window.location.href='https://www.ebay.com/itm/356829386722?_skw=arabica&itmmeta=01K0Y8BP41G5435VF0MZ3QQ0H1&hash=item5314b057e2:g:DkAAAOSwDzhoDPM~&itmprp=enc%3AAQAKAAAA4FkggFvd1GGDu0w3yXCmi1c%2Bs6bNYIABpA0ZRcg%2BDIVg8y877SM7Pi48JGB6N9TcY66TzbGZreBw%2FdSVvyIX61nkVDRKAlPFXEDewB6Obz2OXhM96sXDoJx902brNIYiUJQEdvb9d0tbQWY1czAgdgKJr1QP1ak41dajHUndIxhbUyB4grUlhAWdpJM0av%2B71TENoipETUZqO0ePiVOHWWzdBF9E%2BHUnpbrgmE70ToRYAZFY853y8loZtSO0JhPvNmGJaaJ1bk7fLAvxKlCVdTgJax4FZLW%2FJ5OEt%2FG%2B2xBt%7Ctkp%3ABk9SR6jirsiHZg'">View on eBay</button>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
