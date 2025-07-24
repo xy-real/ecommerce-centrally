@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
     <!-- Link to Tailwind CSS for utility classes -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+    <style>         
       /* Custom styles to ensure Inter font is used */
       body {
         font-family: "Inter", sans-serif;
@@ -81,9 +81,7 @@
         <section class="products-section">
           <h3 class="section-title">Product Overview</h3>
 
-          <div class="products-grid">
-            <!-- Add New Product Card -->
-            <div class="add-product">
+          <div class="add-product">
                <a href="add-product.html"> 
               <div class="add-product-content">
                 <div class="add-icon">+</div>
@@ -92,6 +90,9 @@
               </div>
               </a>
             </div>
+          <div class="products-grid">
+            <!-- Add New Product Card -->
+            
 
             <!-- Existing Product Cards (New additions) -->
             <div class="product-card">
@@ -249,6 +250,6 @@
         </section>
       </main>
     </div>
-    <script src="../backend/fetchData.js"></script>
+    <script src="../backend/updateIndex.js" type="module"></script>
   </body>
 </html>

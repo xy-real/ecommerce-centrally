@@ -1,5 +1,5 @@
 
-console.log("Hello Wold!");
+console.log("Hello World!");
 function attachButtonListener() {
     const createButton = document.querySelector('.add-stock-btn');
     
