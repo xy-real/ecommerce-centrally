@@ -1,4 +1,4 @@
-import supabase  from '../backend/config/supabaseClient.js'; // your initialized Supabase client
+import supabase  from './config/supabaseClient.js'; // your initialized Supabase client
 
 // Simple UUID v4 generator for browser compatibility
 function generateUUID() {
@@ -259,16 +259,16 @@ export async function updateProductSpecs(productID, specs) {
     const { error: deleteError } = await supabase
       .from('productspecvalues')
       .delete()
-      .eq('ProductID', productID);
+      .eq('productid', productID);
 
     if (deleteError) throw new Error(`Specs delete failed: ${deleteError.message}`);
 
     // Insert new specs
     if (specs.length > 0) {
       const specValues = specs.map(spec => ({
-        ProductID: productID,
-        SpecID: spec.SpecID,
-        Value: spec.Value
+        productid: productID,
+        specid: spec.specid || spec.SpecID,
+        value: spec.value || spec.Value
       }));
 
       const { error: insertError } = await supabase
@@ -292,18 +292,18 @@ export async function updateProductVariants(productID, variants) {
     const { error: deleteError } = await supabase
       .from('productvariants')
       .delete()
-      .eq('ProductID', productID);
+      .eq('productid', productID);
 
     if (deleteError) throw new Error(`Variants delete failed: ${deleteError.message}`);
 
     // Insert new variants
     if (variants.length > 0) {
       const variantData = variants.map(variant => ({
-        ProductID: productID,
-        VariantName: variant.VariantName,
-        VariantOption: variant.VariantOption,
-        Stock: variant.Stock,
-        Price: variant.Price
+        productid: productID,
+        variantname: variant.variantname || variant.VariantName,
+        variantoption: variant.variantoption || variant.VariantOption,
+        stock: variant.stock || variant.Stock,
+        price: variant.price || variant.Price
       }));
 
       const { error: insertError } = await supabase
@@ -327,15 +327,15 @@ export async function updateProductHighlights(productID, highlights) {
     const { error: deleteError } = await supabase
       .from('producthighlights')
       .delete()
-      .eq('ProductID', productID);
+      .eq('productid', productID);
 
     if (deleteError) throw new Error(`Highlights delete failed: ${deleteError.message}`);
 
     // Insert new highlights
     if (highlights.length > 0) {
       const highlightData = highlights.map(text => ({
-        ProductID: productID,
-        BulletPoint: typeof text === 'string' ? text : text.BulletPoint
+        productid: productID,
+        bulletpoint: typeof text === 'string' ? text : text.bulletpoint || text.BulletPoint
       }));
 
       const { error: insertError } = await supabase
@@ -427,6 +427,22 @@ export async function searchProducts(filters = {}) {
       query = query.ilike('brand', `%${filters.brand}%`);
     }
 
+    if (filters.minStock) {
+      query = query.gte('productstocks', filters.minStock);
+    }
+
+    if (filters.maxStock) {
+      query = query.lte('productstocks', filters.maxStock);
+    }
+
+    if (filters.inStock) {
+      query = query.gt('productstocks', 0);
+    }
+
+    if (filters.outOfStock) {
+      query = query.eq('productstocks', 0);
+    }
+
     if (filters.searchTerm) {
       query = query.or(`productname.ilike.%${filters.searchTerm}%,description.ilike.%${filters.searchTerm}%`);
     }
@@ -469,6 +485,81 @@ export async function getCategorySpecifications(categoryID) {
     return data;
   } catch (error) {
     console.error('Error in getCategorySpecifications:', error);
+    throw error;
+  }
+}
+
+// Update product stock quantity
+export async function updateProductStock(productID, newStock) {
+  try {
+    const { data, error } = await supabase
+      .from('products')
+      .update({ 
+        productstocks: newStock,
+        updatedat: new Date().toISOString()
+      })
+      .eq('productid', productID)
+      .select()
+      .single();
+
+    if (error) throw new Error(`Stock update failed: ${error.message}`);
+    return data;
+  } catch (error) {
+    console.error('Error in updateProductStock:', error);
+    throw error;
+  }
+}
+
+// Adjust product stock (add or subtract)
+export async function adjustProductStock(productID, adjustment) {
+  try {
+    // First get current stock
+    const { data: product, error: fetchError } = await supabase
+      .from('products')
+      .select('productstocks')
+      .eq('productid', productID)
+      .single();
+
+    if (fetchError) throw new Error(`Product fetch failed: ${fetchError.message}`);
+
+    const newStock = Math.max(0, (product.productstocks || 0) + adjustment);
+
+    const { data, error } = await supabase
+      .from('products')
+      .update({ 
+        productstocks: newStock,
+        updatedat: new Date().toISOString()
+      })
+      .eq('productid', productID)
+      .select()
+      .single();
+
+    if (error) throw new Error(`Stock adjustment failed: ${error.message}`);
+    return data;
+  } catch (error) {
+    console.error('Error in adjustProductStock:', error);
+    throw error;
+  }
+}
+
+// Get products with low stock (below threshold)
+export async function getLowStockProducts(threshold = 10) {
+  try {
+    const { data, error } = await supabase
+      .from('products')
+      .select(`
+        *,
+        sellers (name, storename),
+        categories (name)
+      `)
+      .lt('productstocks', threshold)
+      .order('productstocks', { ascending: true });
+
+    if (error) throw new Error(`Low stock query failed: ${error.message}`);
+
+    return data;
+  } catch (error) {
+    console.error('Error in getLowStockProducts:', error);
     throw error;
   }
 }
@@ -594,6 +685,7 @@ export async function testFunctionsWithDummyData() {
         brand: "TechMaster",
         condition: "New",
         baseprice: 89.99,
+        productstocks: 50,
         weightkg: 0.15,
         lengthcm: 12.5,
         widthcm: 8.0,
@@ -637,19 +729,32 @@ export async function testFunctionsWithDummyData() {
     console.log(`   Product ID: ${addedProduct.productid}`);
     console.log(`   Product Name: ${addedProduct.productname}`);
     console.log(`   Price: $${addedProduct.baseprice}`);
+    console.log(`   Stock: ${addedProduct.productstocks} units`);
     
-    // Step 3: Test getProductDetails function
-    console.log('\n2️⃣ Testing getProductDetails function...');
+    // Step 3: Test stock management functions
+    console.log('\n2️⃣ Testing stock management functions...');
+    
+    // Test stock update
+    const stockUpdated = await updateProductStock(addedProduct.productid, 75);
+    console.log(`✅ Stock updated to: ${stockUpdated.productstocks} units`);
+    
+    // Test stock adjustment
+    const stockAdjusted = await adjustProductStock(addedProduct.productid, -10);
+    console.log(`✅ Stock adjusted to: ${stockAdjusted.productstocks} units`);
+    
+    // Step 4: Test getProductDetails function
+    console.log('\n3️⃣ Testing getProductDetails function...');
     
     const productDetails = await getProductDetails(addedProduct.productid);
     console.log('✅ Product details retrieved!');
     console.log(`   Product: ${productDetails.product.productname}`);
+    console.log(`   Current Stock: ${productDetails.product.productstocks} units`);
     console.log(`   Images: ${productDetails.images.length}`);
     console.log(`   Variants: ${productDetails.variants.length}`);
     console.log(`   Highlights: ${productDetails.highlights.length}`);
     
-    // Step 4: Test searchProducts function
-    console.log('\n3️⃣ Testing searchProducts function...');
+    // Step 5: Test searchProducts function
+    console.log('\n4️⃣ Testing searchProducts function...');
     
     const searchResults = await searchProducts({
       searchTerm: 'gaming',
@@ -658,8 +763,8 @@ export async function testFunctionsWithDummyData() {
     console.log('✅ Search completed!');
     console.log(`   Found ${searchResults.length} products matching "gaming"`);
     
-    // Step 5: Test modifyProduct function
-    console.log('\n4️⃣ Testing modifyProduct function...');
+    // Step 6: Test modifyProduct function
+    console.log('\n5️⃣ Testing modifyProduct function...');
     
     const updatedProduct = await modifyProduct(addedProduct.productid, {
       baseprice: 79.99,
@@ -669,8 +774,25 @@ export async function testFunctionsWithDummyData() {
     console.log(`   New price: $${updatedProduct.baseprice}`);
     console.log(`   New brand: ${updatedProduct.brand}`);
     
-    // Step 6: Test searchProducts with filters
-    console.log('\n5️⃣ Testing searchProducts with price filter...');
+    // Step 7: Test searchProducts with stock filters
+    console.log('\n6️⃣ Testing searchProducts with stock filters...');
+    
+    const stockResults = await searchProducts({
+      inStock: true,
+      limit: 3
+    });
+    console.log('✅ Stock filter search completed!');
+    console.log(`   Found ${stockResults.length} products in stock`);
+    
+    // Step 8: Test low stock products
+    console.log('\n7️⃣ Testing low stock detection...');
+    
+    const lowStockProducts = await getLowStockProducts(100);
+    console.log('✅ Low stock query completed!');
+    console.log(`   Found ${lowStockProducts.length} products with stock below 100`);
+    
+    // Step 9: Test searchProducts with price filter
+    console.log('\n8️⃣ Testing searchProducts with price filter...');
     
     const priceResults = await searchProducts({
       minPrice: 70,
@@ -683,12 +805,15 @@ export async function testFunctionsWithDummyData() {
     console.log('\n🎉 ALL TESTS PASSED! 🎉');
     console.log('\n📊 Summary:');
     console.log('✅ Dummy data created successfully');
-    console.log('✅ addProduct function working');
+    console.log('✅ addProduct function working (with stock support)');
+    console.log('✅ Stock management functions working');
     console.log('✅ getProductDetails function working');
     console.log('✅ searchProducts function working');
     console.log('✅ modifyProduct function working');
+    console.log('✅ Stock filtering working');
+    console.log('✅ Low stock detection working');
     console.log('✅ Price filtering working');
-    console.log('\n🔗 Your product functions are fully functional!');
+    console.log('\n🔗 Your product functions are fully functional with stock management!');
     
     return {
       success: true,
