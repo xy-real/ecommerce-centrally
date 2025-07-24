@@ -132,9 +132,9 @@ export async function addPicture(productID, file, sortOrder = 0) {
     const { data: imageRow, error: dbError } = await supabase
       .from('productimages')
       .insert({
-        ProductID: productID,
-        ImageURL: publicUrl,
-        SortOrder: sortOrder
+        productid: productID,
+        imageurl: publicUrl,
+        sortorder: sortOrder
       })
       .select()
       .single();
@@ -345,15 +345,15 @@ export async function deleteProductImage(imageID) {
     // Get image details first to delete from storage
     const { data: image, error: fetchError } = await supabase
       .from('productimages')
-      .select('ImageURL')
-      .eq('ImageID', imageID)
+      .select('imageurl')
+      .eq('imageid', imageID)
       .single();
 
     if (fetchError) throw new Error(`Image fetch failed: ${fetchError.message}`);
 
     // Extract file path from URL for storage deletion
-    if (image.ImageURL.includes('supabase')) {
-      const url = new URL(image.ImageURL);
+    if (image.imageurl.includes('supabase')) {
+      const url = new URL(image.imageurl);
       const filePath = url.pathname.split('/').slice(-2).join('/'); // Get last two path segments
       
       const { error: storageError } = await supabase.storage
@@ -367,7 +367,7 @@ export async function deleteProductImage(imageID) {
     const { error: dbError } = await supabase
       .from('productimages')
       .delete()
-      .eq('ImageID', imageID);
+      .eq('imageid', imageID);
 
     if (dbError) throw new Error(`Image delete failed: ${dbError.message}`);
 
