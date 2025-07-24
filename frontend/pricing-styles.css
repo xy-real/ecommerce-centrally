@@ -131,7 +131,7 @@ body {
 
 .pricing-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    box-shadow : 1px 4px 7px 4px rgba(0, 0, 0, 33);   
 }
 
 .pricing-card.featured {

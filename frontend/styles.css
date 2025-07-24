@@ -150,7 +150,7 @@ body {
   border-radius: 12px;
   padding: 24px;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Added subtle shadow */
+  box-shadow : 1px 4px 7px 4px rgba(0, 0, 0, 4);   
 }
 
 .stat-label {
@@ -198,7 +198,7 @@ body {
 
 .product-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow : 1px 4px 7px 4px rgba(0, 0, 0, 4); 
 }
 
 /* Add Product Card */
@@ -206,6 +206,7 @@ body {
   /* Make the add-product card span all columns in the grid */
   grid-column: 1 / -1;
   border: 2px dashed #dee2e6;
+  border-radius : 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,7 +266,7 @@ body {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.productimg{
+.product-image img{
   height : 100%;
   width : 100%;
   object-fit:scale-down;
@@ -409,6 +410,15 @@ body {
   .welcome-text h2 {
     font-size: 20px;
   }
+}
+
+
+.platform-name{
+  text-decoration : none;
+  border : 1px solid #fff;
+  padding : 0 10px;
+  border-radius:8px;
+  background-color : rgb(193, 192, 192);
 }
 
 @media (max-width: 480px) {
