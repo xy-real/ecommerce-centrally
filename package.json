@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "@supabase/supabase-js": "^2.52.1",
-    "supabase": "^2.31.8"
+    "supabase": "^2.31.8",
+    "uuid": "^11.1.0"
   },
-  "type" : "module"
+  "type": "module"
 }

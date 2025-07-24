@@ -1,5 +1,13 @@
 import supabase  from '../backend/config/supabaseClient.js'; // your initialized Supabase client
-import { v4 as uuidv4 } from 'uuid';
+
+// Simple UUID v4 generator for browser compatibility
+function generateUUID() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
 
 // Add a new product along with specs, images, and optional variants/highlights
 export async function addProduct(productData) {
@@ -111,15 +119,20 @@ export async function deleteProduct(productID) {
 export async function addPicture(productID, file, sortOrder = 0) {
   try {
     const fileExt = file.name.split('.').pop();
-    const fileName = `${uuidv4()}.${fileExt}`;
+    const fileName = `${generateUUID()}.${fileExt}`;
     const filePath = `${productID}/${fileName}`;
 
-    // 1. Upload to Supabase Storage
+    // 1. Upload to Supabase Storage (bucket must exist)
     const { error: uploadError } = await supabase.storage
       .from('product-images')
       .upload(filePath, file);
 
-    if (uploadError) throw new Error(`Storage upload failed: ${uploadError.message}`);
+    if (uploadError) {
+      if (uploadError.message.includes('Bucket not found')) {
+        throw new Error(`Storage bucket 'product-images' not found. Please create it manually in your Supabase dashboard:\n1. Go to Storage > Buckets\n2. Create new bucket named 'product-images'\n3. Make it public\n4. Set file size limit to 10MB`);
+      }
+      throw new Error(`Storage upload failed: ${uploadError.message}`);
+    }
 
     // 2. Get public URL
     const { data: urlData } = supabase.storage
@@ -700,3 +713,4 @@ export async function testFunctionsWithDummyData() {
     return { success: false, error: error.message };
   }
 }
+

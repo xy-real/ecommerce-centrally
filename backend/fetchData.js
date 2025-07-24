@@ -1,81 +1,118 @@
 import supabase  from '../backend/config/supabaseClient.js'; // your initialized Supabase client
+import { addProduct, addPicture } from './productService.js'; // Import the product functions
  
 console.log("This is javascript");
 
+// Direct button click event listener
+ function attachButtonListener() {
+    const createButton = document.querySelector('.create-product-btn');
+    
+    if (createButton) {
+        createButton.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            // Capture all form inputs into local variables
+            
+            // Product Details
+            const productName = document.getElementById('product-name').value.trim();
+            const productImage = document.getElementById('product-image').files[0]; // File object
+            const productDescription = document.getElementById('product-description').value.trim();
+            const price = parseFloat(document.getElementById('price').value) || 0;
+            const category = document.getElementById('category').value;
+            const stock = parseInt(document.getElementById('stock').value) || 0;
+            const weight = parseFloat(document.getElementById('weight').value) || 0;
+            const height = parseFloat(document.getElementById('height').value) || 0;
+            const width = parseFloat(document.getElementById('width').value) || 0;
+            
+            // Platform Selection (checkboxes)
+            const platforms = {
+                lazada: document.getElementById('platform-lazada').checked,
+                shopee: document.getElementById('platform-shopee').checked,
+                ebay: document.getElementById('platform-ebay').checked,
+                tiktok: document.getElementById('platform-tiktok').checked,
+                facebook: document.getElementById('platform-facebook').checked
+            };
+            
+            // Get array of selected platform names
+            const selectedPlatforms = Object.keys(platforms).filter(platform => platforms[platform]);
+            
+            // Log captured data for verification
+            console.log('Form Data Captured:');
+            console.log('Product Name:', productName);
+            console.log('Product Image:', productImage ? productImage.name : 'No image selected');
+            console.log('Description:', productDescription);
+            console.log('Price:', price);
+            console.log('Category:', category);
+            console.log('Stock:', stock);
+            console.log('Weight:', weight);
+            console.log('Dimensions:', { height, width });
+            console.log('Selected Platforms:', selectedPlatforms);
+            
+            // Form validation
+            if (!productName) {
+                alert('Please enter a product name');
+                return;
+            }
+            
+            if (!productImage) {
+                alert('Please select a product image');
+                return;
+            }
+            
+            if (!category) {
+                alert('Please select a category');
+                return;
+            }
+            
+            if (selectedPlatforms.length === 0) {
+                alert('Please select at least one platform');
+                return;
+            }
+            
+            // Create product object
+            const simpleProduct = {
+                sellerid : 'd34293ca-d255-4bb0-b1ed-bb0891fe3fd8', // Example seller ID
+                categoryid: category, // Use the selected category ID   
+                productname : productName,
+                description : productDescription,
+                baseprice : price,
+                weightkg : weight,
+                heightcm : height,
+                widthcm : width
+            };
 
-// Wait for the DOM to be fully loaded before running the script
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Get a reference to the form element
-    const addProductForm = document.querySelector('.add-product-form');
+            // Call the async function to create product
+            asyncFunc(simpleProduct, productImage);
+        });
+    } else {
+        console.error('Create product button not found');
+    }
+}
 
-    // 2. Attach an event listener to the form's submit event
-    addProductForm.addEventListener('submit', (event) => {
-        // Prevent the default form submission behavior (page reload)
-        event.preventDefault();
+// Call the function to attach the listener (can be called when DOM is ready or immediately)
+attachButtonListener();
 
-        // 3. Get references to each input element and 4. Extract their values
+async function asyncFunc(simpleProduct, imageFile) {
+    try {
+        // Format the data correctly for addProduct function
+        const productData = {
+            product: simpleProduct  // addProduct expects {product: {...}}
+        };
+        
+        const result = await addProduct(productData);
+        console.log('Product created:', result.productid);
+        
+        // Upload the image if provided
+        if (imageFile) {
+            console.log('Uploading product image...');
+            const imageResult = await addPicture(result.productid, imageFile, 1);
+            console.log('Image uploaded:', imageResult.imageurl);
+        }
+        
+        alert('Product created successfully!');
+    } catch (error) {
+        console.error('Error:', error.message);
+        alert('Error creating product: ' + error.message);
+    }
+}
 
-        // Product Details Section
-        const productNameInput = document.getElementById('product-name');
-        const productImageInput = document.getElementById('product-image'); // This will be a FileList object
-        const productDescriptionInput = document.getElementById('product-description');
-        const priceInput = document.getElementById('price');
-        const categorySelect = document.getElementById('category');
-        const stockInput = document.getElementById('stock');
-        const weightInput = document.getElementById('weight');
-        const heightInput = document.getElementById('height');
-        const widthInput = document.getElementById('width'); // Note: You have two inputs with id 'height'. The second one should be 'width'. I've assumed it's 'width' based on the label.
-
-        // Publish to Platforms Section
-        const platformLazadaCheckbox = document.getElementById('platform-lazada');
-        const platformShopeeCheckbox = document.getElementById('platform-shopee');
-        const platformEbayCheckbox = document.getElementById('platform-ebay');
-        const platformTiktokCheckbox = document.getElementById('platform-tiktok');
-        const platformFacebookCheckbox = document.getElementById('platform-facebook');
-
-        // Store the input values in local variables
-        const productName = productNameInput.value;
-        const productImage = productImageInput.files[0]; // Get the first selected file
-        const productDescription = productDescriptionInput.value;
-        const price = parseFloat(priceInput.value); // Convert to a number
-        const category = categorySelect.value;
-        const stock = parseInt(stockInput.value, 10); // Convert to an integer
-        const weight = parseFloat(weightInput.value); // Convert to a number
-        const height = parseFloat(heightInput.value); // Convert to a number
-        const width = parseFloat(widthInput.value); // Convert to a number
-
-        // For checkboxes, check their 'checked' property
-        const publishToLazada = platformLazadaCheckbox.checked;
-        const publishToShopee = platformShopeeCheckbox.checked;
-        const publishToEbay = platformEbayCheckbox.checked;
-        const publishToTiktok = platformTiktokCheckbox.checked;
-        const publishToFacebook = platformFacebookCheckbox.checked;
-
-        // You can now use these local variables (e.g., `productName`, `price`, etc.)
-        // For demonstration, let's log them to the console:
-        console.log('--- Product Details ---');
-        console.log('Product Name:', productName);
-        console.log('Product Image:', productImage ? productImage.name : 'No image selected');
-        console.log('Product Description:', productDescription);
-        console.log('Price:', price);
-        console.log('Category:', category);
-        console.log('Stock:', stock);
-        console.log('Weight (kg):', weight);
-        console.log('Height (inch):', height);
-        console.log('Width (inch):', width); // Corrected from height to width
-
-        console.log('\n--- Publish to Platforms ---');
-        console.log('Publish to Lazada:', publishToLazada);
-        console.log('Publish to Shopee:', publishToShopee);
-        console.log('Publish to eBay:', publishToEbay);
-        console.log('Publish to TikTok:', publishToTiktok);
-        console.log('Publish to Facebook:', publishToFacebook);
-
-        // --- Next Steps ---
-        // At this point, you typically would:
-        // 1. Validate the fetched data.
-        // 2. Send the data to a server (e.g., using `fetch` API or XMLHttpRequest).
-        // 3. Update the UI to confirm submission or show errors.
-    });
-});
-  // ✅ You can now push these values into Supabase or a backend handler
