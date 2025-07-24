@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniSell - Settings</title>
+    <link rel="stylesheet" href="setting-styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>OmniSell</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">
+                    <span class="nav-icon dashboard-icon"></span>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item active">
+                    <span class="nav-icon settings-icon"></span>
+                    Settings
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon pricing-icon"></span>
+                    Pricing
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <header class="page-header">
+                    <h1>Settings</h1>
+                    <p class="page-description">Connect your accounts to enable automated product listing.</p>
+                </header>
+
+                <section class="integrations-section">
+                    <h2 class="section-title">Platform Integrations</h2>
+                    
+                    <div class="integration-list">
+                        <!-- Lazada -->
+                        <div class="integration-item">
+                            <div class="platform-info">
+                                <div class="platform-icon lazada-icon"></div>
+                                <span class="platform-name">Lazada</span>
+                            </div>
+                            <div class="connection-status">
+                                <span class="status-indicator connected"></span>
+                                <span class="status-text">Connected</span>
+                                <button class="disconnect-btn">Disconnect</button>
+                            </div>
+                        </div>
+
+                        <!-- Shopee -->
+                        <div class="integration-item">
+                            <div class="platform-info">
+                                <div class="platform-icon shopee-icon"></div>
+                                <span class="platform-name">Shopee</span>
+                            </div>
+                            <div class="connection-status">
+                                <span class="status-text not-connected">Not Connected</span>
+                                <button class="connect-btn">Connect</button>
+                            </div>
+                        </div>
+
+                        <!-- eBay -->
+                        <div class="integration-item">
+                            <div class="platform-info">
+                                <div class="platform-icon ebay-icon"></div>
+                                <span class="platform-name">eBay</span>
+                            </div>
+                            <div class="connection-status">
+                                <span class="status-indicator connecting"></span>
+                                <span class="status-text">Connecting</span>
+                                <button class="disconnect-btn">Disconnect</button>
+                            </div>
+                        </div>
+
+                        <!-- TikTok Shop -->
+                        <div class="integration-item">
+                            <div class="platform-info">
+                                <div class="platform-icon tiktok-icon"></div>
+                                <span class="platform-name">TikTok Shop</span>
+                            </div>
+                            <div class="connection-status">
+                                <span class="status-text not-connected">Not Connected</span>
+                                <button class="connect-btn">Connect</button>
+                            </div>
+                        </div>
+
+                        <!-- Facebook -->
+                        <div class="integration-item">
+                            <div class="platform-info">
+                                <div class="platform-icon facebook-icon"></div>
+                                <span class="platform-name">Facebook</span>
+                            </div>
+                            <div class="connection-status">
+                                <span class="status-text not-connected">Not Connected</span>
+                                <button class="connect-btn">Connect</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
