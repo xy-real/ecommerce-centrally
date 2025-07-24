@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniSell - Inventory Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="inv-mngmnt-styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>OmniSell</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">
+                    <span class="nav-icon dashboard-icon"></span>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon settings-icon"></span>
+                    Settings
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon pricing-icon"></span>
+                    Pricing
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Header -->
+                <header class="page-header">
+                    <div class="header-navigation">
+                        <button class="back-btn">←</button>
+                        <div class="header-title">
+                            <h1>Inventory Management</h1>
+                            <p class="header-subtitle">Tracking stock of Wireless Ergonomic Mouse</p>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="inventory-layout">
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        <!-- Product Info -->
+                        <section class="product-info-section">
+                            <div class="product-image">
+                                <img src="https://cdn.builder.io/api/v1/image/assets%2F37fd778b32be48d89415dcffe40a5cd5%2Fbd26936919a14356a0284b0fa1e6f6ce?format=webp&width=800" alt="Wireless Ergonomic Mouse" class="product-img">
+                            </div>
+                            <div class="product-details">
+                                <h2 class="product-name">Wireless Ergonomic Mouse</h2>
+                                <div class="product-price">₱2499.00</div>
+                                <div class="current-stock">
+                                    <span class="stock-label">CURRENT STOCK</span>
+                                    <div class="stock-value">150</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Update Stock Level -->
+                        <section class="update-stock-section">
+                            <h3 class="section-title">Update Stock Level</h3>
+                            <div class="stock-form">
+                                <label for="quantity" class="form-label">Quantity to Add or Sell</label>
+                                <input type="number" id="quantity" class="quantity-input" placeholder="e.g. 10">
+                                <div class="stock-actions">
+                                    <button class="stock-btn add-stock-btn">Add to Stock</button>
+                                    <button class="stock-btn record-sale-btn">Record Physical Sale</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="right-column">
+                        <!-- Daily Sales Chart -->
+                        <section class="sales-chart-section">
+                            <h3 class="chart-title">Daily Sales (Last 7 Days)</h3>
+                            <div class="chart-container">
+                                <div class="chart-bars">
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 40px;"></div>
+                                            <div class="bar ebay-bar" style="height: 25px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 35px;"></div>
+                                            <div class="bar ebay-bar" style="height: 45px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 60px;"></div>
+                                            <div class="bar ebay-bar" style="height: 80px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 50px;"></div>
+                                            <div class="bar ebay-bar" style="height: 35px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 45px;"></div>
+                                            <div class="bar ebay-bar" style="height: 40px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 70px;"></div>
+                                            <div class="bar ebay-bar" style="height: 85px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-day">
+                                        <div class="bar-group">
+                                            <div class="bar lazada-bar" style="height: 55px;"></div>
+                                            <div class="bar ebay-bar" style="height: 50px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-indicator lazada"></span>
+                                        <span class="legend-label">Lazada</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-indicator ebay"></span>
+                                        <span class="legend-label">eBay</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Platform Actions -->
+                        <section class="platform-actions-section">
+                            <h3 class="section-title">Platform Actions</h3>
+                            <div class="platform-buttons">
+                                <button class="platform-btn lazada-btn">Sync on Lazada</button>
+                                <button class="platform-btn ebay-btn">View on eBay</button>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
