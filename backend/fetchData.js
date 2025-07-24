@@ -78,7 +78,8 @@ console.log("This is javascript");
                 baseprice : price,
                 weightkg : weight,
                 heightcm : height,
-                widthcm : width
+                widthcm : width,
+                productstocks: stock, // Use the stock value
             };
 
             // Call the async function to create product
