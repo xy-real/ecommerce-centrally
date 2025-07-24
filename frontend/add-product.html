@@ -46,7 +46,7 @@
                         
                         <div class="form-group">
                             <label for="product-name" class="form-label">Product Name</label>
-                            <input type="text" id="product-name" class="form-input" placeholder="Enter product name">
+                            <input type="text" id="product-name" class="form-input" placeholder="Enter product name" required autofocus>
                         </div>
 
                         <div class="form-group">
@@ -58,7 +58,7 @@
                                     <p>Click to upload or drag and drop</p>
                                     <p class="upload-hint">PNG, JPG up to 10MB</p>
                                 </div>
-                                <input type="file" id="product-image" class="file-input" accept="image/*">
+                                <input type="file" id="product-image" class="file-input" accept="image/*" required>
                             </div>
 
                             
@@ -66,7 +66,7 @@
 
                         <div class="form-group">
                             <label for="product-description" class="form-label">Product Description</label>
-                            <input type="text" id="product-description" class="form-input" placeholder="Brief description of the product">
+                            <input type="text" id="product-description" class="form-input" placeholder="Brief description of the product" required>
                         </div>
 
                         <div class="form-row">
@@ -74,7 +74,7 @@
                                 <label for="price" class="form-label">Price</label>
                                 <div class="price-input">
                                     <span class="currency-symbol">₱</span>
-                                    <input type="number" id="price" class="form-input" placeholder="0.00" step="0.01">
+                                    <input type="number" id="price" class="form-input" placeholder="0.00" step="0.01" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -92,17 +92,17 @@
                         </div>
                         <div class="form-group">
                             <label for="detailed-description" class="form-label">Detailed Description</label>
-                            <textarea id="detailed-description" class="form-textarea" rows="6" placeholder="Provide a detailed description of your product, including features, specifications, and benefits..."></textarea>
+                            <textarea id="detailed-description" class="form-textarea" rows="6" placeholder="Provide a detailed description of your product, including features, specifications, and benefits..." required></textarea>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="stock" class="form-label">Stock</label>
-                                <input type="number" id="stock" class="form-input" placeholder="0" min="0">
+                                <input type="number" id="stock" class="form-input" placeholder="0" min="0" required>
                             </div>
                             <div class="form-group">
                                 <label for="sku" class="form-label">SKU</label>
-                                <input type="text" id="sku" class="form-input" placeholder="SKU-001">
+                                <input type="text" id="sku" class="form-input" placeholder="SKU-001" required>
                             </div>
                         </div>
                     </section>
@@ -113,7 +113,7 @@
                         
                         <div class="platforms-grid">
                             <div class="platform-option">
-                                <input type="checkbox" id="platform-lazada" class="platform-checkbox" checked>
+                                <input type="checkbox" id="platform-lazada" class="platform-checkbox" checked required>
                                 <label for="platform-lazada" class="platform-label">
                                     <div class="platform-icon lazada-icon"></div>
                                     <span class="platform-name">Lazada</span>
@@ -121,7 +121,7 @@
                             </div>
                             
                             <div class="platform-option">
-                                <input type="checkbox" id="platform-shopee" class="platform-checkbox">
+                                <input type="checkbox" id="platform-shopee" class="platform-checkbox" required>
                                 <label for="platform-shopee" class="platform-label">
                                     <div class="platform-icon shopee-icon"></div>
                                     <span class="platform-name">Shopee</span>
@@ -129,7 +129,7 @@
                             </div>
                             
                             <div class="platform-option">
-                                <input type="checkbox" id="platform-ebay" class="platform-checkbox" checked>
+                                <input type="checkbox" id="platform-ebay" class="platform-checkbox" checked required>
                                 <label for="platform-ebay" class="platform-label">
                                     <div class="platform-icon ebay-icon"></div>
                                     <span class="platform-name">eBay</span>
@@ -137,7 +137,7 @@
                             </div>
                             
                             <div class="platform-option">
-                                <input type="checkbox" id="platform-tiktok" class="platform-checkbox">
+                                <input type="checkbox" id="platform-tiktok" class="platform-checkbox" required>
                                 <label for="platform-tiktok" class="platform-label">
                                     <div class="platform-icon tiktok-icon"></div>
                                     <span class="platform-name">TikTok</span>
@@ -145,7 +145,7 @@
                             </div>
                             
                             <div class="platform-option">
-                                <input type="checkbox" id="platform-facebook" class="platform-checkbox">
+                                <input type="checkbox" id="platform-facebook" class="platform-checkbox" required>
                                 <label for="platform-facebook" class="platform-label">
                                     <div class="platform-icon facebook-icon"></div>
                                     <span class="platform-name">Facebook</span>
