@@ -1,403 +1,654 @@
 /* Inventory Management Specific Styles */
 .content-wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px; /* Added padding for better spacing */
 }
 
 /* Header */
 .page-header {
-    margin-bottom: 32px;
+  margin-bottom: 20px; /* Adjusted margin */
 }
 
 .header-navigation {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-
 .back-btn {
-    background: none;
-    border: none;
-    font-size: 20px;
-    color: #6c757d;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
 
 .back-btn:hover {
-    background-color: #f8f9fa;
+  background-color: #f8f9fa;
 }
 
 .header-title h1 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #212529;
-    margin-bottom: 4px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 4px;
 }
 
 .header-subtitle {
-    font-size: 14px;
-    color: #6c757d;
-    margin: 0;
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 24px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6c757d;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: #212529;
+}
+
+.tab-btn.active {
+  color: #007bff;
+}
+
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #007bff;
+}
+
+.order-count {
+  background-color: #dc3545;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 50%;
+  padding: 3px 6px;
+  margin-left: 8px;
+  vertical-align: super;
+}
+
+/* Tab Content */
+.tab-content-container {
+  width: 100%;
+}
+
+.tab-content.hidden {
+  display: none;
 }
 
 /* Layout */
 .inventory-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
 }
 
 /* Left Column */
 .left-column {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 /* Product Info Section */
 .product-info-section {
-    background-color: #fff;
-    border: 1px solid #e9ecef;
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
 }
 
 .product-image {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .product-img {
-    width: 100%;
-    max-width: 200px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
+  width: 100%;
+  max-width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .product-name {
-    font-size: 18px;
-    font-weight: 600;
-    color: #212529;
-    margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 8px;
 }
 
 .product-price {
-    font-size: 20px;
-    font-weight: 700;
-    color: #007bff;
-    margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 20px;
 }
 
 .current-stock {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
 .stock-label {
-    font-size: 12px;
-    color: #6c757d;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+  font-size: 12px;
+  color: #6c757d;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .stock-value {
-    font-size: 48px;
-    font-weight: 700;
-    color: #212529;
+  font-size: 48px;
+  font-weight: 700;
+  color: #212529;
 }
 
 /* Update Stock Section */
 .update-stock-section {
-    background-color: #fff;
-    border: 1px solid #e9ecef;
-    border-radius: 12px;
-    padding: 24px;
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 24px;
 }
 
 .section-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: #212529;
-    margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 16px;
 }
 
 .stock-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .form-label {
-    font-size: 14px;
-    color: #6c757d;
-    margin-bottom: 8px;
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 8px;
 }
 
 .quantity-input {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ced4da;
-    border-radius: 6px;
-    font-size: 14px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .quantity-input:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
 .stock-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .stock-btn {
-    padding: 10px 16px;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .add-stock-btn {
-    background-color: #6c757d;
-    color: #fff;
+  background-color: #6c757d;
+  color: #fff;
 }
 
 .add-stock-btn:hover {
-    background-color: #5a6268;
+  background-color: #5a6268;
 }
 
 .record-sale-btn {
-    background-color: #6c757d;
-    color: #fff;
+  background-color: #6c757d;
+  color: #fff;
 }
 
 .record-sale-btn:hover {
-    background-color: #5a6268;
+  background-color: #5a6268;
 }
 
 /* Right Column */
 .right-column {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 /* Sales Chart Section */
 .sales-chart-section {
-    background-color: #fff;
-    border: 1px solid #e9ecef;
-    border-radius: 12px;
-    padding: 24px;
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 24px;
 }
 
 .chart-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: #212529;
-    margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 20px;
 }
 
 .chart-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .chart-bars {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    height: 120px;
-    gap: 8px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  height: 120px;
+  gap: 8px;
 }
 
 .chart-day {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: end;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: end;
 }
 
 .bar-group {
-    display: flex;
-    gap: 4px;
-    align-items: end;
+  display: flex;
+  gap: 4px;
+  align-items: end;
 }
 
 .bar {
-    width: 12px;
-    border-radius: 2px 2px 0 0;
-    min-height: 8px;
+  width: 12px;
+  border-radius: 2px 2px 0 0;
+  min-height: 8px;
 }
 
 .lazada-bar {
-    background-color: #007bff;
+  background-color: #007bff;
 }
 
 .ebay-bar {
-    background-color: #dc3545;
+  background-color: #dc3545;
 }
 
 .chart-legend {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .legend-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
 }
 
 .legend-indicator.lazada {
-    background-color: #007bff;
+  background-color: #007bff;
 }
 
 .legend-indicator.ebay {
-    background-color: #dc3545;
+  background-color: #dc3545;
 }
 
 .legend-label {
-    font-size: 12px;
-    color: #6c757d;
+  font-size: 12px;
+  color: #6c757d;
 }
 
 /* Platform Actions Section */
 .platform-actions-section {
-    background-color: #fff;
-    border: 1px solid #e9ecef;
-    border-radius: 12px;
-    padding: 24px;
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 24px;
 }
 
 .platform-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .platform-btn {
-    padding: 12px 16px;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .lazada-btn {
-    background-color: #007bff;
-    color: #fff;
+  background-color: #007bff;
+  color: #fff;
 }
 
 .lazada-btn:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .ebay-btn {
-    background-color: #dc3545;
-    color: #fff;
+  background-color: #dc3545;
+  color: #fff;
 }
 
 .ebay-btn:hover {
-    background-color: #c82333;
+  background-color: #c82333;
 }
 
+/* Orders Section Styles */
+.orders-section {
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.order-search-bar {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.order-category {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e9ecef; /* Separator between categories */
+  padding-bottom: 16px;
+}
+
+.order-category:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.category-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+.confirm-selected-btn {
+  background-color: #6c757d;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.confirm-selected-btn:hover {
+  background-color: #5a6268;
+}
+
+.select-all-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.select-all-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #007bff;
+}
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 12px 16px;
+  gap: 12px;
+}
+
+.order-item.successful {
+  background-color: #e6ffed; /* Light green for successful */
+  border-color: #28a745;
+}
+
+.order-item.cancelled {
+  background-color: #ffe6e6; /* Light red for cancelled */
+  border-color: #dc3545;
+}
+
+.order-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #007bff;
+}
+
+.platform-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 4px;
+  display: inline-block;
+}
+
+.platform-indicator.blue {
+  background-color: #007bff; /* Lazada blue */
+}
+
+.platform-indicator.red {
+  background-color: #dc3545; /* eBay red */
+}
+
+.order-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.order-id {
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 4px;
+}
+
+.customer-info {
+  color: #6c757d;
+  font-size: 13px;
+}
+
+.confirm-btn {
+  background-color: #28a745;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.confirm-btn:hover {
+  background-color: #218838;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .inventory-layout {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-    
-    .header-navigation {
-        gap: 12px;
-    }
-    
-    .header-title h1 {
-        font-size: 20px;
-    }
-    
-    .stock-value {
-        font-size: 36px;
-    }
-    
-    .chart-bars {
-        height: 100px;
-        gap: 6px;
-    }
-    
-    .bar {
-        width: 10px;
-    }
-    
-    .product-img {
-        max-width: 150px;
-        height: 100px;
-    }
+  .inventory-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .header-navigation {
+    gap: 12px;
+  }
+
+  .header-title h1 {
+    font-size: 20px;
+  }
+
+  .stock-value {
+    font-size: 36px;
+  }
+
+  .chart-bars {
+    height: 100px;
+    gap: 6px;
+  }
+
+  .bar {
+    width: 10px;
+  }
+
+  .product-img {
+    max-width: 150px;
+    height: 100px;
+  }
+
+  .tab-btn {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+  .order-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .confirm-btn {
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
-    .content-wrapper {
-        padding: 0 16px;
-    }
-    
-    .product-info-section,
-    .update-stock-section,
-    .sales-chart-section,
-    .platform-actions-section {
-        padding: 20px;
-    }
-    
-    .header-title h1 {
-        font-size: 18px;
-    }
-    
-    .header-subtitle {
-        font-size: 12px;
-    }
-    
-    .stock-value {
-        font-size: 32px;
-    }
-    
-    .chart-bars {
-        height: 80px;
-        gap: 4px;
-    }
-    
-    .bar {
-        width: 8px;
-    }
-    
-    .platform-buttons {
-        gap: 12px;
-    }
-    
-    .chart-legend {
-        gap: 16px;
-    }
+  .content-wrapper {
+    padding: 0 16px;
+  }
+
+  .product-info-section,
+  .update-stock-section,
+  .sales-chart-section,
+  .platform-actions-section,
+  .orders-section {
+    padding: 20px;
+  }
+
+  .header-title h1 {
+    font-size: 18px;
+  }
+
+  .header-subtitle {
+    font-size: 12px;
+  }
+
+  .stock-value {
+    font-size: 32px;
+  }
+
+  .chart-bars {
+    height: 80px;
+    gap: 4px;
+  }
+
+  .bar {
+    width: 8px;
+  }
+
+  .platform-buttons {
+    gap: 12px;
+  }
+
+  .chart-legend {
+    gap: 16px;
+  }
+
+  .tab-btn {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .category-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .confirm-selected-btn {
+    width: 100%;
+  }
 }

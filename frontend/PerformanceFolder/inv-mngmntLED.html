@@ -1,158 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OmniSell - Inventory Management</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="inv-mngmnt-styles.css">
-    <link rel="shortcut icon" href="../img/myfavicon.jpg" type="image/x-icon">
-</head>
-<body>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="inv-mngmnt-styles.css" />
+    <link rel="shortcut icon" href="../img/myfavicon.jpg" type="image/x-icon" />
+  </head>
+  <body>
     <div class="app-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo">
-                <h2>OmniSell</h2>
+      <aside class="sidebar">
+        <div class="logo">
+          <h2 class="omniSell">OmniSell</h2>
+        </div>
+        <nav class="nav-menu">
+          <a href="../index.html" class="nav-item">
+            <span class="nav-icon dashboard-icon"></span>
+            Dashboard
+          </a>
+          <a href="../settings.html" class="nav-item">
+            <span class="nav-icon settings-icon"></span>
+            Settings
+          </a>
+          <a href="../pricing.html" class="nav-item">
+            <span class="nav-icon pricing-icon"></span>
+            Pricing
+          </a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <div class="content-wrapper">
+          <header class="page-header">
+            <div class="header-navigation">
+              <button class="back-btn">←</button>
+              <div class="header-title">
+                <h1>Inventory Management</h1>
+                <p class="header-subtitle">
+                  Tracking stock of Smart LED Strip Lights
+                </p>
+              </div>
             </div>
-            <nav class="nav-menu">
-                <a href="../index.html" class="nav-item">
-                    <span class="nav-icon dashboard-icon"></span>
-                    Dashboard
-                </a>
-                <a href="../settings.html" class="nav-item">
-                    <span class="nav-icon settings-icon"></span>
-                    Settings
-                </a>
-                <a href="../pricing.html" class="nav-item">
-                    <span class="nav-icon pricing-icon"></span>
-                    Pricing
-                </a>
-            </nav>
-        </aside>
+          </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="content-wrapper">
-                <!-- Header -->
-                <header class="page-header">
-                    <div class="header-navigation">
-                        <button class="back-btn">←</button>
-                        <div class="header-title">
-                            <h1>Inventory Management</h1>
-                                <p class="header-subtitle">Tracking stock of Smart LED Strip Lights</p>
-                        </div>
+          <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="analytics">
+              Analytics
+            </button>
+            <button class="tab-btn" data-tab="orders">
+              Orders <span class="order-count">2</span>
+            </button>
+          </div>
+
+          <div class="tab-content-container">
+            <div id="analytics-content" class="tab-content active">
+              <div class="inventory-layout">
+                <div class="left-column">
+                  <section class="product-info-section">
+                    <div class="product-image">
+                      <img
+                        src="../img/ledlights.png"
+                        alt="Smart LED Strip Lights"
+                        class="product-img"
+                      />
                     </div>
-                </header>
-
-                <div class="inventory-layout">
-                    <!-- Left Column -->
-                    <div class="left-column">
-                        <!-- Product Info -->
-                        <section class="product-info-section">
-                            <div class="product-image">
-                                <img src="../img/ledlights.png" alt="Wireless Ergonomic Mouse" class="product-img">
-                            </div>
-                            <div class="product-details">
-                                <h2 class="product-name">Smart LED Strip Lights</h2>
-                                <div class="product-price">₱720.00</div>    
-                                <div class="current-stock">
-                                    <span class="stock-label">CURRENT STOCK</span>
-                                    <div class="stock-value">75</div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Update Stock Level -->
-                        <section class="update-stock-section">
-                            <h3 class="section-title">Update Stock Level</h3>
-                            <div class="stock-form">
-                                <label for="quantity" class="form-label">Quantity to Add or Sell</label>
-                                <input type="number" id="quantity" class="quantity-input" placeholder="e.g. 10">
-                                <div class="stock-actions">
-                                    <button class="stock-btn add-stock-btn">Add to Stock</button>
-                                    <button class="stock-btn record-sale-btn">Record Physical Sale</button>
-                                </div>
-                            </div>
-                        </section>
+                    <div class="product-details">
+                      <h2 class="product-name">Smart LED Strip Lights</h2>
+                      <div class="product-price">₱720.00</div>
+                      <div class="current-stock">
+                        <span class="stock-label">CURRENT STOCK</span>
+                        <div class="stock-value">75</div>
+                      </div>
                     </div>
+                  </section>
 
-                    <!-- Right Column -->
-                    <div class="right-column">
-                        <!-- Daily Sales Chart -->
-                        <section class="sales-chart-section">
-                            <h3 class="chart-title">Daily Sales (Last 7 Days)</h3>
-                            <div class="chart-container">
-                                <div class="chart-bars">
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 40px;"></div>
-                                            <div class="bar ebay-bar" style="height: 25px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 35px;"></div>
-                                            <div class="bar ebay-bar" style="height: 45px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 60px;"></div>
-                                            <div class="bar ebay-bar" style="height: 80px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 50px;"></div>
-                                            <div class="bar ebay-bar" style="height: 35px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 45px;"></div>
-                                            <div class="bar ebay-bar" style="height: 40px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 70px;"></div>
-                                            <div class="bar ebay-bar" style="height: 85px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 55px;"></div>
-                                            <div class="bar ebay-bar" style="height: 50px;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="chart-legend">
-                                    <div class="legend-item">
-                                        <span class="legend-indicator lazada"></span>
-                                        <span class="legend-label">Lazada</span>
-                                    </div>
-                                    <div class="legend-item">
-                                        <span class="legend-indicator ebay"></span>
-                                        <span class="legend-label">eBay</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Platform Actions -->
-                        <section class="platform-actions-section">
-                            <h3 class="section-title">Platform Actions</h3>
-                            <div class="platform-buttons">
-                                <button class="platform-btn lazada-btn" onclick="window.location.href='https://www.lazada.com.ph/products/pdp-i4971627418-s29016479282.html?c=&channelLpJumpArgs=&clickTrackInfo=query%253Asmart%252Bled%252Bstrips%253Bnid%253A4971627418%253Bsrc%253ALazadaMainSrp%253Brn%253A59b77002346f20fa78d5914b78ab2621%253Bregion%253Aph%253Bsku%253A4971627418_PH%253Bprice%253A120%253Bclient%253Adesktop%253Bsupplier_id%253A500182257014%253Bbiz_source%253Ah5_internal%253Bslot%253A0%253Butlog_bucket_id%253A470687%253Basc_category_id%253A10100143%253Bitem_id%253A4971627418%253Bsku_id%253A29016479282%253Bshop_id%253A2527871%253BtemplateInfo%253A107881_D_E%25231103_L%2523-1_A3_C%2523&freeshipping=1&fs_ab=2&fuse_fs=&lang=en&location=Metro%20Manila~Manila&price=1.2E%202&priceCompare=skuId%3A29016479282%3Bsource%3Alazada-search-voucher%3Bsn%3A59b77002346f20fa78d5914b78ab2621%3BoriginPrice%3A12000%3BdisplayPrice%3A12000%3BsinglePromotionId%3A-1%3BsingleToolCode%3AmockedSalePrice%3BvoucherPricePlugin%3A0%3Btimestamp%3A1753364737834&ratingscore=4.906040268456376&request_id=59b77002346f20fa78d5914b78ab2621&review=149&sale=427&search=1&source=search&spm=a2o4l.searchlist.list.0&stock=1'">Sync on Lazada</button>
-                                
-                                <button class="platform-btn ebay-btn" onclick="window.location.href='https://www.ebay.com/itm/186910112159?_skw=smart+led+light+strips&itmmeta=01K0YB2JHKHWQEATEYJYFANP5W&hash=item2b84b5f99f:g:ouIAAOSwlytnkvLA&itmprp=enc%3AAQAKAAAA8FkggFvd1GGDu0w3yXCmi1cv6shFUe7DuRqqutMrh7vyZHj5z4MSu6OeqbXigiuS%2FaBtlw5wEduUaKWFlAsCJ5OeZhMOYEDdZHjVtcIjSlboqZaZyvrCayuBa8yIHKpVzPc4yzCl5bx%2FSwAoNTeLem2Bj8kreLNKwJpVrggDp5LG1YDuT0oOVlEsA18fW6v8HKkFO3qGGi44psttmHIpB36THMB4x9%2FOQWF9r%2FfkTMcE%2Fxk4HJE7TPdzDGwayN5EVgcJeeWidnz6RJuU3bQJ2HZkM%2BWwe2%2FIbJi7w8tApcJ4OhUpqfIXC3eMDpFQRk3eeA%3D%3D%7Ctkp%3ABFBM-KiKy4dm'">View on eBay</button>
-                            </div>
-                        </section>
+                  <section class="update-stock-section">
+                    <h3 class="section-title">Update Stock Level</h3>
+                    <div class="stock-form">
+                      <label for="quantity" class="form-label"
+                        >Quantity to Add or Sell</label
+                      >
+                      <input
+                        type="number"
+                        id="quantity"
+                        class="quantity-input"
+                        placeholder="e.g. 10"
+                      />
+                      <div class="stock-actions">
+                        <button class="stock-btn add-stock-btn">
+                          Add to Stock
+                        </button>
+                        <button class="stock-btn record-sale-btn">
+                          Record Physical Sale
+                        </button>
+                      </div>
                     </div>
+                  </section>
                 </div>
+
+                <div class="right-column">
+                  <section class="sales-chart-section">
+                    <h3 class="chart-title">Daily Sales (Last 7 Days)</h3>
+                    <div class="chart-container">
+                      <div class="chart-bars">
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 40px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 25px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 35px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 45px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 60px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 80px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 50px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 35px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 45px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 40px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 70px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 85px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 55px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 50px"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="chart-legend">
+                        <div class="legend-item">
+                          <span class="legend-indicator lazada"></span>
+                          <span class="legend-label">Lazada</span>
+                        </div>
+                        <div class="legend-item">
+                          <span class="legend-indicator ebay"></span>
+                          <span class="legend-label">eBay</span>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="platform-actions-section">
+                    <h3 class="section-title">Platform Actions</h3>
+                    <div class="platform-buttons">
+                      <button
+                        class="platform-btn lazada-btn"
+                        onclick="window.location.href='https://www.lazada.com.ph/products/pdp-i4971627418-s29016479282.html?c=&channelLpJumpArgs=&clickTrackInfo=query%253Asmart%252Bled%252Bstrips%253Bnid%253A4971627418%253Bsrc%253ALazadaMainSrp%253Brn%253A59b77002346f20fa78d5914b78ab2621%253Bregion%253Aph%253Bsku%253A4971627418_PH%253Bprice%253A120%253Bclient%253Adesktop%253Bsupplier_id%253A500182257014%253Bbiz_source%253Ah5_internal%253Bslot%253A0%253Butlog_bucket_id%253A470687%253Basc_category_id%253A10100143%253Bitem_id%253A4971627418%253Bsku_id%253A29016479282%253Bshop_id%253A2527871%253BtemplateInfo%253A107881_D_E%25231103_L%2523-1_A3_C%2523&freeshipping=1&fs_ab=2&fuse_fs=&lang=en&location=Metro%20Manila~Manila&price=1.2E%202&priceCompare=skuId%3A29016479282%3Bsource%3Alazada-search-voucher%3Bsn%3A59b77002346f20fa78d5914b78ab2621%3BoriginPrice%3A12000%3BdisplayPrice%3A12000%3BsinglePromotionId%3A-1%3BsingleToolCode%3AmockedSalePrice%3BvoucherPricePlugin%3A0%3Btimestamp%3A1753364737834&ratingscore=4.906040268456376&request_id=59b77002346f20fa78d5914b78ab2621&review=149&sale=427&search=1&source=search&spm=a2o4l.searchlist.list.0&stock=1'"
+                      >
+                        Sync on Lazada
+                      </button>
+
+                      <button
+                        class="platform-btn ebay-btn"
+                        onclick="window.location.href='https://www.ebay.com/itm/186910112159?_skw=smart+led+light+strips&itmmeta=01K0YB2JHKHWQEATEYJYFANP5W&hash=item2b84b5f99f:g:ouIAAOSwlytnkvLA&itmprp=enc%3AAQAKAAAA8FkggFvd1GGDu0w3yXCmi1cv6shFUe7DuRqqutMrh7vyZHj5z4MSu6OeqbXigiuS%2FaBtlw5wEduUaKWFlAsCJ5OeZhMOYEDdZHjVtcIjSlboqZaZyvrCayuBa8yIHKpVzPc4yzCl5bx%2FSwAoNTeLem2Bj8kreLNKwJpVrggDp5LG1YDuT0oOVlEsA18fW6v8HKkFO3qGGi44psttmHIpB36THMB4x9%2FOQWF9r%2FfkTMcE%2Fxk4HJE7TPdzDGwayN5EVgcJeeWidnz6RJuU3bQJ2HZkM%2BWwe%2FIbJi7w8tApcJ4OhUpqfIXC3eMDpFQRk3eeA%3D%3D%7Ctkp%3ABFBM-KiKy4dm'"
+                      >
+                        View on eBay
+                      </button>
+                    </div>
+                  </section>
+                </div>
+              </div>
             </div>
-        </main>
+
+            <div id="orders-content" class="tab-content hidden">
+              <div class="orders-section">
+                <div class="order-search-bar">
+                  <input
+                    type="text"
+                    placeholder="Search by customer or order #"
+                    class="search-input"
+                  />
+                </div>
+
+                <div class="order-category">
+                  <div class="category-header">
+                    <h4 class="category-title">Pending Confirmation (2)</h4>
+                    <button class="confirm-selected-btn">
+                      Confirm Selected (0)
+                    </button>
+                  </div>
+                  <div class="select-all-checkbox">
+                    <input type="checkbox" id="selectAllPending" />
+                    <label for="selectAllPending">Select All</label>
+                  </div>
+                  <div class="order-list">
+                    <div class="order-item">
+                      <input type="checkbox" class="order-checkbox" />
+                      <div class="order-details">
+                        <span class="platform-indicator blue"></span>
+                        <span class="order-id">Order #LAZ-746383</span>
+                        <span class="customer-info"
+                          >Customer: Juan Dela Cruz | Qty: 1 | Date:
+                          7/28/2024</span
+                        >
+                      </div>
+                      <button class="confirm-btn">Confirm</button>
+                    </div>
+                    <div class="order-item">
+                      <input type="checkbox" class="order-checkbox" />
+                      <div class="order-details">
+                        <span class="platform-indicator red"></span>
+                        <span class="order-id">Order #EB-927401</span>
+                        <span class="customer-info"
+                          >Customer: Jane Doe | Qty: 2 | Date: 7/28/2024</span
+                        >
+                      </div>
+                      <button class="confirm-btn">Confirm</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="order-category">
+                  <div class="category-header">
+                    <h4 class="category-title">On Transit (1)</h4>
+                  </div>
+                  <div class="order-list">
+                    <div class="order-item">
+                      <div class="order-details">
+                        <span class="platform-indicator red"></span>
+                        <span class="order-id">Order #EB-927355</span>
+                        <span class="customer-info"
+                          >Customer: Samantha Bee | Qty: 1 | Date:
+                          7/27/2024</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="order-category">
+                  <div class="category-header">
+                    <h4 class="category-title">Successful Deliveries (1)</h4>
+                  </div>
+                  <div class="order-list">
+                    <div class="order-item successful">
+                      <div class="order-details">
+                        <span class="platform-indicator blue"></span>
+                        <span class="order-id">Order #LAZ-746098</span>
+                        <span class="customer-info"
+                          >Customer: Alice Guo | Qty: 1 | Date: 7/24/2024</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="order-category">
+                  <div class="category-header">
+                    <h4 class="category-title">Cancelled Orders History (1)</h4>
+                  </div>
+                  <div class="order-list">
+                    <div class="order-item cancelled">
+                      <div class="order-details">
+                        <span class="platform-indicator red"></span>
+                        <span class="order-id">Order #EB-927050</span>
+                        <span class="customer-info"
+                          >Customer: Marla Singer | Qty: 1 | Date:
+                          7/23/2024</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabButtons = document.querySelectorAll(".tab-btn");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Deactivate all tab buttons and hide all tab contents
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+            tabContents.forEach((content) => content.classList.add("hidden"));
+
+            // Activate the clicked tab button
+            button.classList.add("active");
+
+            // Show the corresponding tab content
+            const targetTab = button.dataset.tab;
+            document
+              .getElementById(targetTab + "-content")
+              .classList.remove("hidden");
+          });
+        });
+
+        // Initial state: show Analytics tab
+        document.querySelector('.tab-btn[data-tab="analytics"]').click();
+      });
+    </script>
+  </body>
 </html>

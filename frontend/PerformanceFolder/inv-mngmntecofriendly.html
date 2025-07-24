@@ -1,157 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OmniSell - Inventory Management</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="inv-mngmnt-styles.css">
-    <link rel="shortcut icon" href="../img/myfavicon.jpg" type="image/x-icon">
-</head>
-<body>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="inv-mngmnt-styles.css" />
+    <link rel="shortcut icon" href="../img/myfavicon.jpg" type="image/x-icon" />
+  </head>
+  <body>
     <div class="app-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo">
-                <h2>OmniSell</h2>
+      <aside class="sidebar">
+        <div class="logo">
+          <h2>OmniSell</h2>
+        </div>
+        <nav class="nav-menu">
+          <a href="../index.html" class="nav-item">
+            <span class="nav-icon dashboard-icon"></span>
+            Dashboard
+          </a>
+          <a href="../settings.html" class="nav-item">
+            <span class="nav-icon settings-icon"></span>
+            Settings
+          </a>
+          <a href="../pricing.html" class="nav-item">
+            <span class="nav-icon pricing-icon"></span>
+            Pricing
+          </a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <div class="content-wrapper">
+          <header class="page-header">
+            <div class="header-navigation">
+              <button class="back-btn">←</button>
+              <div class="header-title">
+                <h1>Inventory Management</h1>
+                <p class="header-subtitle">
+                  Tracking stock of Eco-friendly Yoga Mat
+                </p>
+              </div>
             </div>
-            <nav class="nav-menu">
-                <a href="../index.html" class="nav-item">
-                    <span class="nav-icon dashboard-icon"></span>
-                    Dashboard
-                </a>
-                <a href="../settings.html" class="nav-item">
-                    <span class="nav-icon settings-icon"></span>
-                    Settings
-                </a>
-                <a href="../pricing.html" class="nav-item">
-                    <span class="nav-icon pricing-icon"></span>
-                    Pricing
-                </a>
-            </nav>
-        </aside>
+          </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="content-wrapper">
-                <!-- Header -->
-                <header class="page-header">
-                    <div class="header-navigation">
-                        <button class="back-btn">←</button>
-                        <div class="header-title">
-                            <h1>Inventory Management</h1>
-                                <p class="header-subtitle">Tracking stock of Eco-friendly Yoga Mat</p>
-                        </div>
+          <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="analytics">
+              Analytics
+            </button>
+            <button class="tab-btn" data-tab="orders">
+              Orders <span class="order-count">2</span>
+            </button>
+          </div>
+
+          <div class="tab-content-container">
+            <div id="analytics-content" class="tab-content active">
+              <div class="inventory-layout">
+                <div class="left-column">
+                  <section class="product-info-section">
+                    <div class="product-image">
+                      <img
+                        src="../img/ecofriendlyyogamat.png"
+                        alt="Eco-Friendly Yoga Mat"
+                        class="product-img"
+                      />
                     </div>
-                </header>
-
-                <div class="inventory-layout">
-                    <!-- Left Column -->
-                    <div class="left-column">
-                        <!-- Product Info -->
-                        <section class="product-info-section">
-                            <div class="product-image">
-                                <img src="../img/ecofriendlyyogamat.png" alt="Wireless Ergonomic Mouse" class="product-img">
-                            </div>
-                            <div class="product-details">
-                                <h2 class="product-name">Eco-Friendly Yoga Mat</h2>
-                                <div class="product-price">₱1,500.00</div>    
-                                <div class="current-stock">
-                                    <span class="stock-label">CURRENT STOCK</span>
-                                    <div class="stock-value">40</div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Update Stock Level -->
-                        <section class="update-stock-section">
-                            <h3 class="section-title">Update Stock Level</h3>
-                            <div class="stock-form">
-                                <label for="quantity" class="form-label">Quantity to Add or Sell</label>
-                                <input type="number" id="quantity" class="quantity-input" placeholder="e.g. 10">
-                                <div class="stock-actions">
-                                    <button class="stock-btn add-stock-btn">Add to Stock</button>
-                                    <button class="stock-btn record-sale-btn">Record Physical Sale</button>
-                                </div>
-                            </div>
-                        </section>
+                    <div class="product-details">
+                      <h2 class="product-name">Eco-Friendly Yoga Mat</h2>
+                      <div class="product-price">₱1,500.00</div>
+                      <div class="current-stock">
+                        <span class="stock-label">CURRENT STOCK</span>
+                        <div class="stock-value">40</div>
+                      </div>
                     </div>
+                  </section>
 
-                    <!-- Right Column -->
-                    <div class="right-column">
-                        <!-- Daily Sales Chart -->
-                        <section class="sales-chart-section">
-                            <h3 class="chart-title">Daily Sales (Last 7 Days)</h3>
-                            <div class="chart-container">
-                                <div class="chart-bars">
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 40px;"></div>
-                                            <div class="bar ebay-bar" style="height: 25px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 35px;"></div>
-                                            <div class="bar ebay-bar" style="height: 45px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 60px;"></div>
-                                            <div class="bar ebay-bar" style="height: 80px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 50px;"></div>
-                                            <div class="bar ebay-bar" style="height: 35px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 45px;"></div>
-                                            <div class="bar ebay-bar" style="height: 40px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 70px;"></div>
-                                            <div class="bar ebay-bar" style="height: 85px;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="chart-day">
-                                        <div class="bar-group">
-                                            <div class="bar lazada-bar" style="height: 55px;"></div>
-                                            <div class="bar ebay-bar" style="height: 50px;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="chart-legend">
-                                    <div class="legend-item">
-                                        <span class="legend-indicator lazada"></span>
-                                        <span class="legend-label">Lazada</span>
-                                    </div>
-                                    <div class="legend-item">
-                                        <span class="legend-indicator ebay"></span>
-                                        <span class="legend-label">eBay</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Platform Actions -->
-                        <section class="platform-actions-section">
-                            <h3 class="section-title">Platform Actions</h3>
-                            <div class="platform-buttons">
-                                <button class="platform-btn lazada-btn" onclick="window.location.href='https://www.lazada.com.ph/products/pdp-i1925743429-s8240823180.html?c=&channelLpJumpArgs=&clickTrackInfo=query%253Apink%252Beco%252Bfriendly%252Byoga%252Bmat%253Bnid%253A1925743429%253Bsrc%253ALazadaMainSrp%253Brn%253A8804e1e5ab1cf4b39ce5a1f720ce75f5%253Bregion%253Aph%253Bsku%253A1925743429_PH%253Bprice%253A155%253Bclient%253Adesktop%253Bsupplier_id%253A1670%253Bbiz_source%253Ah5_internal%253Bslot%253A2%253Butlog_bucket_id%253A470687%253Basc_category_id%253A9898%253Bitem_id%253A1925743429%253Bsku_id%253A8240823180%253Bshop_id%253A8440%253BtemplateInfo%253A107881_D_E%25231103_L%2523-1_A3_C%2523&freeshipping=1&fs_ab=2&fuse_fs=&lang=en&location=Cavite&price=155&priceCompare=skuId%3A8240823180%3Bsource%3Alazada-search-voucher%3Bsn%3A8804e1e5ab1cf4b39ce5a1f720ce75f5%3BoriginPrice%3A15500%3BdisplayPrice%3A15500%3BsinglePromotionId%3A-1%3BsingleToolCode%3AmockedSalePrice%3BvoucherPricePlugin%3A0%3Btimestamp%3A1753365148843&ratingscore=4.75&request_id=8804e1e5ab1cf4b39ce5a1f720ce75f5&review=16&sale=103&search=1&source=search&spm=a2o4l.searchlist.list.2&stock=1'">Sync on Lazada</button>
-                                <button class="platform-btn ebay-btn" onclick="window.location.href='https://www.ebay.com/itm/205579226344?_skw=pink+eco+friendly+yoga+mat&itmmeta=01K0YB9NMTKSRA5JVESXDZQGB3&hash=item2fdd7a0ce8:g:374AAeSwgVNoWYi5&itmprp=enc%3AAQAKAAABAFkggFvd1GGDu0w3yXCmi1dVeUePOrJVXBmteFygJ4cB076j8pt8ktOYUDRkNWBr6v%2FqK7hlPTRdRZquP6mA9Nb3RKOlZwixiKeMLJTdFyXz1IMvwyGdbutTozZZ4ADdUFkzwIb%2FLQXrDN7yUNzzXp5PyT%2BhUzG3KvEXj3WDPS4norXlFOCwYYcUWD5z1a9m5HcJTBCjAKD3oNehrw8rVT9ns1dnvDXQ7Vi1AM2UQM%2B3OFriOrVjhifnn5haLueCF%2Fq4GUq7UELCGtxXcp6den0R3zTWQ29I9mHuC6ZxZFLk6nDq%2B%2FKEMu9U08kTOnqetxGQdQH0Dkfw%2BUyErafnOu4%3D%7Ctkp%3ABFBMzNqmy4dm'">View on eBay</button>
-                            </div>
-                        </section>
+                  <section class="update-stock-section">
+                    <h3 class="section-title">Update Stock Level</h3>
+                    <div class="stock-form">
+                      <label for="quantity" class="form-label"
+                        >Quantity to Add or Sell</label
+                      >
+                      <input
+                        type="number"
+                        id="quantity"
+                        class="quantity-input"
+                        placeholder="e.g. 10"
+                      />
+                      <div class="stock-actions">
+                        <button class="stock-btn add-stock-btn">
+                          Add to Stock
+                        </button>
+                        <button class="stock-btn record-sale-btn">
+                          Record Physical Sale
+                        </button>
+                      </div>
                     </div>
+                  </section>
                 </div>
+
+                <div class="right-column">
+                  <section class="sales-chart-section">
+                    <h3 class="chart-title">Daily Sales (Last 7 Days)</h3>
+                    <div class="chart-container">
+                      <div class="chart-bars">
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 40px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 25px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 35px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 45px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 60px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 80px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 50px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 35px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 45px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 40px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 70px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 85px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div class="chart-day">
+                          <div class="bar-group">
+                            <div
+                              class="bar lazada-bar"
+                              style="height: 55px"
+                            ></div>
+                            <div
+                              class="bar ebay-bar"
+                              style="height: 50px"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="chart-legend">
+                        <div class="legend-item">
+                          <span class="legend-indicator lazada"></span>
+                          <span class="legend-label">Lazada</span>
+                        </div>
+                        <div class="legend-item">
+                          <span class="legend-indicator ebay"></span>
+                          <span class="legend-label">eBay</span>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="platform-actions-section">
+                    <h3 class="section-title">Platform Actions</h3>
+                    <div class="platform-buttons">
+                      <button
+                        class="platform-btn lazada-btn"
+                        onclick="window.location.href='https://www.lazada.com.ph/products/pdp-i1925743429-s8240823180.html?c=&channelLpJumpArgs=&clickTrackInfo=query%253Apink%252Becp%252Bfriendly%252Byoga%252Bmat%253Bnid%253A1925743429%253Bsrc%253ALazadaMainSrp%253Brn%253A8804e1e5ab1cf4b39ce5a1f720ce75f5%253Bregion%253Aph%253Bsku%253A1925743429_PH%253Bprice%253A155%253Bclient%253Adesktop%253Bsupplier_id%253A1670%253Bbiz_source%253Ah5_internal%253Bslot%253A2%253Butlog_bucket_id%253A470687%253Basc_category_id%253A9898%253Bitem_id%253A1925743429%253Bsku_id%253A8240823180%253Bshop_id%253A8440%253BtemplateInfo%253A107881_D_E%25231103_L%2523-1_A3_C%2523&freeshipping=1&fs_ab=2&fuse_fs=&lang=en&location=Cavite&price=155&priceCompare=skuId%3A8240823180%3Bsource%3Alazada-search-voucher%3Bsn%3A8804e1e5ab1cf4b39ce5a1f720ce75f5%3BoriginPrice%3A15500%3BdisplayPrice%3A15500%3BsinglePromotionId%3A-1%3BsingleToolCode%3AmockedSalePrice%3BvoucherPricePlugin%3A0%3Btimestamp%3A1753365148843&ratingscore=4.75&request_id=8804e1e5ab1cf4b39ce5a1f720ce75f5&review=16&sale=103&search=1&source=search&spm=a2o4l.searchlist.list.2&stock=1'"
+                      >
+                        Sync on Lazada
+                      </button>
+                      <button
+                        class="platform-btn ebay-btn"
+                        onclick="window.location.href='https://www.ebay.com/itm/205579226344?_skw=pink+eco+friendly+yoga+mat&itmmeta=01K0YB9NMTKSRA5JVESXDZQGB3&hash=item2fdd7a0ce8:g:374AAeSwgVNoWYi5&itmprp=enc%3AAQAKAAABAFkggFvd1GGDu0w3yXCmi1dVeUePOrJVXBmteFygJ4cB076j8pt8ktOYUDRkNWBr6v%2FqK7hlPTRdRZquP6mA9Nb3RKOlZwixiKeMLJTdFyXz1IMvwyGdbutTozZZ4ADdUFkzwIb%2FLQXrDN7yUNzzXp5PyT%2BhUzG3KvEXj3WDPS4norXlFOCwYYcUWD5z1a9m5HcJTBCjAKD3oNehrw8rVT9ns1dnvDXQ7Vi1AM2UQM%2B3OFriOrVjhifnn5haLueCF%2Fq4GUq7UELCGtxXcp6den0R3zTWQ29I9mHuC6ZxZFLk6nDq%2B%2FKEMu9U08kTOnqetxGQdQH0Dkfw%2BUyErafnOu4%3D%7Ctkp%3ABFBMzNqmy4dm'"
+                      >
+                        View on eBay
+                      </button>
+                    </div>
+                  </section>
+                </div>
+              </div>
             </div>
-        </main>
+
+            <div id="orders-content" class="tab-content hidden">
+              <div class="orders-section">
+                <div class="order-search-bar">
+                  <input
+                    type="text"
+                    placeholder="Search by customer or order #"
+                    class="search-input"
+                  />
+                </div>
+
+                <div class="order-category">
+                  <div class="category-header">
+                    <h4 class="category-title">Pending Confirmation (2)</h4>
+                    <button class="confirm-selected-btn">
+                      Confirm Selected (0)
+                    </button>
+                  </div>
+                  <div class="select-all-checkbox">
+                    <input type="checkbox" id="selectAllPending" />
+                    <label for="selectAllPending">Select All</label>
+                  </div>
+                  <div class="order-list">
+                    <div class="order-item">
+                      <input type="checkbox" class="order-checkbox" />
+                      <div class="order-details">
+                        <span class="platform-indicator blue"></span>
+                        <span class="order-id">Order #LAZ-746383</span>
+                        <span class="customer-info"
+                          >Customer: Juan Dela Cruz | Qty: 1 | Date:
+                          7/28/2024</span
+                        >
+                      </div>
+                      <button class="confirm-btn">Confirm</button>
+                    </div>
+                    <div class="order-item">
+                      <input type="checkbox" class="order-checkbox" />
+                      <div class="order-details">
+                        <span class="platform-indicator red"></span>
+                        <span class="order-id">Order #EB-927401</span>
+                        <span class="customer-info"
+                          >Customer: Jane Doe | Qty: 2 | Date: 7/28/2024</span
+                        >
+                      </div>
+                      <button class="confirm-btn">Confirm</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="order-category">
+                  <div class="category-header">
+                    <h4 class="category-title">On Transit (1)</h4>
+                  </div>
+                  <div class="order-list">
+                    <div class="order-item">
+                      <div class="order-details">
+                        <span class="platform-indicator red"></span>
+                        <span class="order-id">Order #EB-927355</span>
+                        <span class="customer-info"
+                          >Customer: Samantha Bee | Qty: 1 | Date:
+                          7/27/2024</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="order-category">
+                  <div class="category-header">
+                    <h4 class="category-title">Successful Deliveries (1)</h4>
+                  </div>
+                  <div class="order-list">
+                    <div class="order-item successful">
+                      <div class="order-details">
+                        <span class="platform-indicator blue"></span>
+                        <span class="order-id">Order #LAZ-746098</span>
+                        <span class="customer-info"
+                          >Customer: Alice Guo | Qty: 1 | Date: 7/24/2024</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="order-category">
+                  <div class="category-header">
+                    <h4 class="category-title">Cancelled Orders History (1)</h4>
+                  </div>
+                  <div class="order-list">
+                    <div class="order-item cancelled">
+                      <div class="order-details">
+                        <span class="platform-indicator red"></span>
+                        <span class="order-id">Order #EB-927050</span>
+                        <span class="customer-info"
+                          >Customer: Marla Singer | Qty: 1 | Date:
+                          7/23/2024</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabButtons = document.querySelectorAll(".tab-btn");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Deactivate all tab buttons and hide all tab contents
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+            tabContents.forEach((content) => content.classList.add("hidden"));
+
+            // Activate the clicked tab button
+            button.classList.add("active");
+
+            // Show the corresponding tab content
+            const targetTab = button.dataset.tab;
+            document
+              .getElementById(targetTab + "-content")
+              .classList.remove("hidden");
+          });
+        });
+
+        // Initial state: show Analytics tab
+        document.querySelector('.tab-btn[data-tab="analytics"]').click();
+      });
+    </script>
+  </body>
 </html>
