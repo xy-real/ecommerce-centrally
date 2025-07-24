@@ -265,7 +265,7 @@ body {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.productimg{
+.product-image img{
   height : 100%;
   width : 100%;
   object-fit:scale-down;
@@ -409,6 +409,15 @@ body {
   .welcome-text h2 {
     font-size: 20px;
   }
+}
+
+
+.platform-name{
+  text-decoration : none;
+  border : 1px solid #fff;
+  padding : 0 10px;
+  border-radius:8px;
+  background-color : rgb(193, 192, 192);
 }
 
 @media (max-width: 480px) {
